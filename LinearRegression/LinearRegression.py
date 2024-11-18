@@ -32,10 +32,21 @@ class LinearRegression(object):
         db = (1 / n_samples) * np.sum(y_pred - y)
         return dw, db
 
+    def gradient_descent(self, X, y):
+        """
+        Perform Gradient Descent to update weights and bias.
+        """
+        for i in range(self.n_iterations):
+            dw, db = self.compute_gradient(X, y)
+
+            # Update parameters
+            self.weights -= self.learning_rate * dw
+            self.bias -= self.learning_rate * db
+
+            # Optional: Monitor cost for debugging
+            if i % 100 == 0:
+                cost = self.compute_cost(X, y)
+                print(f"Iteration {i}, Cost: {cost:.4f}, And Current Weights: {self.weights}, And Bias: {self.bias}")
 
 
-    def fit(self, X, y):
-        pass
 
-    def predict(self, X):
-        pass
