@@ -48,5 +48,11 @@ class LinearRegression(object):
                 cost = self.compute_cost(X, y)
                 print(f"Iteration {i}, Cost: {cost:.4f}, And Current Weights: {self.weights}, And Bias: {self.bias}")
 
-
+    def fit(self, X, y):
+        """
+        Train the model using gradient descent.
+        """
+        n_features = X.shape[1]
+        self.initialize_parameters(n_features)
+        self.gradient_descent(X, y)
 
