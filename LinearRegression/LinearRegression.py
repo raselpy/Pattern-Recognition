@@ -18,9 +18,17 @@ class LinearRegression(object):
         cost = (1 / (2 * n_samples)) * np.sum((y_pred - y) ** 2)
         return cost
 
-    def initialize_parameters(self, n_features):
-        self.weights = np.zeros(n_features)
-        self.bias = 0
+    def compute_gradient(self, X, y):
+        """
+        Compute the gradient of the cost function w.r.t. weights and bias.
+        """
+        n_samples = len(y)
+        y_pred = np.dot(X, self.weights) + self.bias
+        dw = (1 / n_samples) * np.dot(X.T, (y_pred - y))
+        db = (1 / n_samples) * np.sum(y_pred - y)
+        return dw, db
+
+
 
     def fit(self, X, y):
         pass
