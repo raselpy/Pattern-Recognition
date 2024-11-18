@@ -1,4 +1,6 @@
 import numpy as np
+from matplotlib import pyplot as plt
+
 from LinearRegression import LinearRegression
 
 np.random.seed(42)
@@ -15,6 +17,15 @@ model.fit(X_train, y_train)
 
 # Make predictions
 y_pred = model.predict(X_test)
+
+# Data Visualization
+plt.scatter(X_test, y_test, marker='X', color='blue')
+plt.plot(X_test, y_pred, color='red')
+plt.title('Linear Regression')
+plt.xlabel('Features')
+plt.ylabel('Targets')
+plt.show()
+
 
 # Evaluate the model
 from sklearn.metrics import mean_squared_error
