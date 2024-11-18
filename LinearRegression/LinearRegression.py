@@ -56,3 +56,8 @@ class LinearRegression(object):
         self.initialize_parameters(n_features)
         self.gradient_descent(X, y)
 
+    def predict(self, X):
+        """
+        Predict target values for the input data.
+        """
+        return np.dot(X, self.weights) + self.bias
