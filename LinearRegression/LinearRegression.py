@@ -9,6 +9,15 @@ class LinearRegression(object):
         self.weights = None
         self.bias = None
 
+    def compute_cost(self, X, y):
+        """
+        Compute the Mean Squared Error (MSE) cost function.
+        """
+        n_samples = len(y)
+        y_pred = np.dot(X, self.weights) + self.bias
+        cost = (1 / (2 * n_samples)) * np.sum((y_pred - y) ** 2)
+        return cost
+
     def initialize_parameters(self, n_features):
         self.weights = np.zeros(n_features)
         self.bias = 0
