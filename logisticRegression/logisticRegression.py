@@ -1,3 +1,4 @@
+import numpy as np
 from sklearn.decomposition import non_negative_factorization
 
 
@@ -8,8 +9,8 @@ class LogisticRegression(object):
         self.weights = None
         self.bias = None
 
-    def sigmoid(self):
-        pass
+    def sigmoid(self, z):
+        return 1 / (1 + np.exp(-z))
 
     def compute_cost(self):
         pass
