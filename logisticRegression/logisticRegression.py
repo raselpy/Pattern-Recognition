@@ -9,7 +9,8 @@ class LogisticRegression(object):
         self.weights = None
         self.bias = None
 
-    def sigmoid(self, z):
+    @staticmethod
+    def sigmoid(z):
         return 1 / (1 + np.exp(-z))
 
     def compute_cost(self,X,y,weights,bias):
