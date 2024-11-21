@@ -40,8 +40,8 @@ I am a **Master’s student in Artificial Intelligence** at **FAU Erlangen-Nürn
 
 Feel free to connect with me for feedback or collaboration!
 
-- **Email**: [your-email@example.com](mailto:rasel.ahmed@fau.de)  
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/md-rasel-ahmed-a558142b7//)  
-- **GitHub**: [Your GitHub Profile](https://github.com/raselpy)  
+- **Email**: [rasel.ahmed@fau.de](mailto:rasel.ahmed@fau.de)  
+- **LinkedIn**: [RaselAhmed](https://www.linkedin.com/in/md-rasel-ahmed-a558142b7//)  
+- **GitHub**: [Raselpy](https://github.com/raselpy)  
 
 
