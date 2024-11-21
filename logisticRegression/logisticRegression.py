@@ -13,14 +13,14 @@ class LogisticRegression(object):
     def sigmoid(z):
         return 1 / (1 + np.exp(-z))
 
-    def compute_cost(self,X,y,weights,bias):
+    def compute_cost(self,X,y):
         """
            To minimize the error, we aim to maximize the log-likelihood. Since optimization
            algorithms typically minimize rather than maximize, we use the negative
            log-likelihood as the cost function
         """
         m = len(y)
-        h = self.sigmoid(np.dot(X,weights)+bias)
+        h = self.sigmoid(np.dot(X,self.weights)+self.bias)
         cost= (-1/m)*np.sum(y*np.log(h) + (1-y)*np.log(1-h))
         return cost
 
