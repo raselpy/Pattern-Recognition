@@ -63,6 +63,13 @@ class LogisticRegression(object):
         self.initialize_parameters(shape)
         self.gradient_descent(X, y)
 
-    def predict(self):
-        pass
+    def predict(self, X):
+        """
+                Predict the class labels for given input features.
+                """
+        probabilities = self.sigmoid(np.dot(X, self.weights) + self.bias)
+
+        return (probabilities >= 0.5).astype(int)
+
+
 
