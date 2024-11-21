@@ -12,6 +12,10 @@ class LogisticRegression(object):
     def sigmoid(z):
         return 1 / (1 + np.exp(-z))
 
+    def initialize_weights(self,shape):
+        self.weights = np.zeros(shape)
+        self.bias = 0
+
     def compute_cost(self,X,y):
         """
            To minimize the error, we aim to maximize the log-likelihood. Since optimization
@@ -60,5 +64,3 @@ class LogisticRegression(object):
     def predict(self):
         pass
 
-    def plot_decision_boundary(self):
-        pass
