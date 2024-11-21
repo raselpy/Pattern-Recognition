@@ -12,7 +12,7 @@ class LogisticRegression(object):
     def sigmoid(z):
         return 1 / (1 + np.exp(-z))
 
-    def initialize_weights(self,shape):
+    def initialize_parameters(self,shape):
         self.weights = np.zeros(shape)
         self.bias = 0
 
