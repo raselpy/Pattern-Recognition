@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.decomposition import non_negative_factorization
 
 
 class LogisticRegression(object):
@@ -35,6 +34,25 @@ class LogisticRegression(object):
         db = (1 / m) * np.sum(error)  # Gradient with respect to bias
         return dw, db
 
+    def gradient_descent(self, X, y):
+        """
+        Trains the logistic regression model using gradient descent.
+        """
+        m, n = X.shape
+
+        for _ in range(self.n_iter):
+            # Linear combination
+            z = np.dot(X, self.weights) + self.bias
+            # Prediction using sigmoid
+            y_pred = self.sigmoid(z)
+
+            # Gradients
+            dw = (1 / m) * np.dot(X.T, (y_pred - y))
+            db = (1 / m) * np.sum(y_pred - y)
+
+            # Update parameters
+            self.weights -= self.learning_rate * dw
+            self.bias -= self.learning_rate * db
 
     def fit(self):
         pass
