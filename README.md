@@ -20,7 +20,6 @@ The repository includes implementations of various topics covered in the course,
    - **Parameter Initialization**: Initializes weights and bias manually.
    - **Custom Training Loop**: Includes a training loop with optional cost monitoring.
    - **Prediction**: Supports predictions on unseen data.
-   - **Data Visualization**: Plots the regression line against test data for visualization.
 
 2. **Logistic Regression**
    - 
