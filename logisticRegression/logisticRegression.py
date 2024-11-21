@@ -58,8 +58,10 @@ class LogisticRegression(object):
             self.weights -= self.learning_rate * dw
             self.bias -= self.learning_rate * db
 
-    def fit(self):
-        pass
+    def fit(self, X, y):
+        shape = X.shape[1]
+        self.initialize_parameters(shape)
+        self.gradient_descent(X, y)
 
     def predict(self):
         pass
