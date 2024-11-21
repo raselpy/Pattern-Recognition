@@ -22,7 +22,10 @@ The repository includes implementations of various topics covered in the course,
    - **Prediction**: Supports predictions on unseen data.
 
 2. **Logistic Regression**
-   - 
+   - **Sigmoid Function **
+   - **Cost Function **
+   - **Calculate Gradient**
+   - **Gradient Descent**
 
 ---
 
