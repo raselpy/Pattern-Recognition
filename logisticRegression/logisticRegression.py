@@ -24,7 +24,16 @@ class LogisticRegression(object):
         cost= (-1/m)*np.sum(y*np.log(h) + (1-y)*np.log(1-h))
         return cost
 
-
+    def compute_gradient(self, X, y):
+        """
+        Compute the gradients of the cost function with respect to weights (dw) and bias (db).
+        """
+        m = len(y)
+        h = self.sigmoid(np.dot(X, self.weights) + self.bias)
+        error = h - y
+        dw = (1 / m) * np.dot(X.T, error)  # Gradient with respect to weights
+        db = (1 / m) * np.sum(error)  # Gradient with respect to bias
+        return dw, db
 
 
     def fit(self):
