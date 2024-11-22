@@ -1,4 +1,6 @@
+import numpy as np
 import pandas as pd
+from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -23,3 +25,10 @@ model.fit(X_train, y_train)
 # Predict
 y_pred = model.predict(X_test)
 print(y_pred)
+
+# Evaluate Matrix
+accuracy = np.mean(y_pred == y_test)
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
+cm = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(cm)
