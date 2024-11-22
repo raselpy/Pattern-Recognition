@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -32,3 +32,7 @@ print(f"Model Accuracy: {accuracy * 100:.2f}%")
 cm = confusion_matrix(y_test, y_pred)
 print("Confusion Matrix:")
 print(cm)
+
+# Classification Report
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=["Class 0", "Class 1"]))
