@@ -7,5 +7,8 @@ class KNN(object):
         self.y = y
         return self
 
-    def predict(self):
+    def _predict_one(self,test):
         pass
+
+    def predict(self, X):
+        return [(self._predict_one(i))for i in X]
