@@ -11,4 +11,4 @@ class KNN(object):
         pass
 
     def predict(self, X):
-        return [(self._predict_one(i))for i in X]
+        return [self._predict_one(i)for i in X]
