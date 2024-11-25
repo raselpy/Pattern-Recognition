@@ -11,6 +11,9 @@ class KNN(object):
         d = sum(abs(data1 - data2))
         return d
 
+    def _compute_weights(self, distances):
+        return [(1, y) for d, y in distances]
+
     def _predict_one(self,test):
         distances = sorted([(self._distance(x, test), y) for x, y in zip(self.X, self.y)])
         return distances
