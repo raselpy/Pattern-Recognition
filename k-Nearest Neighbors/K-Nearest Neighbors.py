@@ -1,3 +1,6 @@
+import numpy as np
+from collections import defaultdict
+
 class KNN(object):
     def __init__(self, n_neighbor=3):
         self.n_neighbor = n_neighbor
@@ -16,7 +19,14 @@ class KNN(object):
 
     def _predict_one(self,test):
         distances = sorted([(self._distance(x, test), y) for x, y in zip(self.X, self.y)])
-        return distances
+        # Get the closest n_neighbors
+        neighbors = distances[:self.n_neighbor]
+        weights = self._compute_weights(neighbors)
+        weights_by_class = defaultdict(list)
+        for d, c in weights:
+            weights_by_class[c].append(d)
+        dc = max((sum(val), key) for key, val in weights_by_class.items())
+        return dc[1]
 
     def predict(self, X):
         return [self._predict_one(i)for i in X]
