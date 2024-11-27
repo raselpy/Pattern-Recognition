@@ -2,9 +2,10 @@ import numpy as np
 from collections import defaultdict
 
 class KNN(object):
-    def __init__(self, n_neighbor=3, weights='uniform'):
+    def __init__(self, n_neighbor=3, weights='uniform', distance_type=2):
         self.n_neighbor = n_neighbor
         self.weights = weights
+        self.distance_type = distance_type
 
     def fit(self, X, y):
         self.X = X
@@ -12,8 +13,12 @@ class KNN(object):
         return self
 
     def _distance(self, data1, data2):
-        d = sum(abs(data1 - data2))
-        return d
+        """1: Manhattan, 2: Euclidean"""
+        if self.distance_type == 1:
+            return sum(abs(data1 - data2))
+        elif self.distance_type == 2:
+            return np.sqrt(sum((data1 - data2)**2))
+        raise ValueError("p not recognized: should be 1 or 2")
 
     def _compute_weights(self, distances):
         if self.weights == 'uniform':
