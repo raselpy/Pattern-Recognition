@@ -7,10 +7,10 @@ class KNeighborsClassifier(object):
         self.y_train = y_train
         return self
 
-    def _predict_one(self):
-        pass
+    def predict(self, X_test):
+        return [self._predict_one(i) for i in X]
 
-    def predict(self):
+    def _predict_one(self,x_dataPoint):
         pass
 
 
