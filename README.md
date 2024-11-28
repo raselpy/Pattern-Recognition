@@ -12,7 +12,9 @@ The repository includes implementations of various topics covered in the course,
 
 2. **Logistic Regression**
    
-3. **Naive Bayes**
+3. **Naive Bayes Classifier**
+
+4. **K-Nearest Neighbors Classifier**
 
 ---
 
