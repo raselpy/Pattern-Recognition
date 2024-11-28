@@ -2,12 +2,6 @@
 
 This repository is a collection of implementations of algorithms and concepts I have learned from the **Pattern Recognition** course at **Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)**. All algorithms are implemented from scratch using Python, focusing on the mathematical understanding and practical application of pattern recognition techniques.
 
-## 🚀 Objectives
-
-- Reinforce theoretical concepts of pattern recognition through practical implementation.
-- Develop a deep understanding of key algorithms by implementing them without relying on external libraries.
-- Build a comprehensive repository of educational resources for others interested in pattern recognition.
-
 ---
 
 ## 📂 Contents
