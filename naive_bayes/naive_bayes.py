@@ -28,4 +28,7 @@ class NaiveBayes(object):
             self._priors[idx] = X_c.shape[0] / float(n_samples)
 
     def predict(self, X):
-        pass
+        # Predict the class for each sample in the dataset
+        y_pred = [self._predict(x) for x in X]
+        # Return predictions as a numpy array
+        return np.array(y_pred)
