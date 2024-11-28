@@ -49,4 +49,12 @@ class NaiveBayes(object):
         return self._classes[np.argmax(posteriors)]
 
     def _pdf(self,idx,x):
-        pass
+        # Get mean and variance for the given class
+        mean = self._mean[idx]
+        var = self._var[idx]
+        # Compute the numerator of the Gaussian PDF
+        numerator = np.exp(-((x - mean) ** 2) / (2 * var))
+        # Compute the denominator of the Gaussian PDF
+        denominator = np.sqrt(2 * np.pi * var)
+        # Return the probability density for the given sample
+        return numerator / denominator
