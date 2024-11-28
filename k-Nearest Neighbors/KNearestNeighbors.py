@@ -1,7 +1,7 @@
 import numpy as np
 from collections import defaultdict
 
-class KNN(object):
+class KNearestNeighbors(object):
     def __init__(self, n_neighbor=3, weights='uniform', distance_type=2):
         self.n_neighbor = n_neighbor
         self.weights = weights
