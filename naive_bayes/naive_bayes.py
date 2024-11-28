@@ -32,3 +32,21 @@ class NaiveBayes(object):
         y_pred = [self._predict(x) for x in X]
         # Return predictions as a numpy array
         return np.array(y_pred)
+
+    def _predict(self,x):
+        # List to store posterior probabilities for each class
+        posteriors = []
+
+        # Calculate posterior probability for each class
+        for idx, c in enumerate(self._classes):
+            # Compute log of the prior probability
+            prior = np.log(self._priors[idx])
+            # Compute log of the likelihood for the given sample
+            posterior = np.sum(np.log(self._pdf(idx, x)))
+
+
+        # Return the class with the highest posterior probability
+        return self._classes[np.argmax(posteriors)]
+
+    def _pdf(self,idx,x):
+        pass
