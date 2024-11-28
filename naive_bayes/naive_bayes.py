@@ -43,6 +43,10 @@ class NaiveBayes(object):
             prior = np.log(self._priors[idx])
             # Compute log of the likelihood for the given sample
             posterior = np.sum(np.log(self._pdf(idx, x)))
+            # Add prior to likelihood to get the posterior
+            posterior = posterior + prior
+            # Append the posterior probability for the current class
+            posteriors.append(posterior)
 
 
         # Return the class with the highest posterior probability
