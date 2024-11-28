@@ -15,17 +15,10 @@ This repository is a collection of implementations of algorithms and concepts I 
 The repository includes implementations of various topics covered in the course, such as:
 
 1. **Linear Regression**
-   - **Gradient Descent**: Implements gradient descent for optimizing weights and bias.
-   - **Cost Function**: Uses Mean Squared Error (MSE) as the cost function.
-   - **Parameter Initialization**: Initializes weights and bias manually.
-   - **Custom Training Loop**: Includes a training loop with optional cost monitoring.
-   - **Prediction**: Supports predictions on unseen data.
 
 2. **Logistic Regression**
-   - **Sigmoid Function**
-   - **Cost Function**
-   - **Calculate Gradient**
-   - **Gradient Descent**
+   
+3. **Naive Bayes**
 
 ---
 
