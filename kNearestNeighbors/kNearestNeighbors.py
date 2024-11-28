@@ -2,8 +2,10 @@ class KNeighborsClassifier(object):
     def __init__(self, n_neighbors=5):
         self.n_neighbors = n_neighbors
 
-    def fit(self):
-        pass
+    def fit(self, X_train, y_train):
+        self.X_train = X_train
+        self.y_train = y_train
+        return self
 
     def _predict_one(self):
         pass
