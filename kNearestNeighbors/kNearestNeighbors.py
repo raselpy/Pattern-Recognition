@@ -1,3 +1,4 @@
+from collections import defaultdict
 class KNeighborsClassifier(object):
     def __init__(self, n_neighbors=5):
         self.n_neighbors = n_neighbors
@@ -24,7 +25,13 @@ class KNeighborsClassifier(object):
         # 2. Select the k nearest neighbors (defined by self.n_neighbors).
         # 3. Compute weights for the k nearest neighbors.
         weights = self._compute_weights(distances[:self.n_neighbors])
-        return weights
+        # Group weights by class labels.
+        weights_by_class = defaultdict(list)
+        for d, c in weights:
+            weights_by_class[c].append(d)
+
+        # Find the class with the highest total weight and return it.
+        return max((sum(val), key) for key, val in weights_by_class.items())[1]
 
     def predict(self, X_test):
         return [self._predict_one(i) for i in X]
