@@ -27,8 +27,24 @@ class SVM(object):
         self.X_support = None  # Support vectors
         self.y_support = None  # Labels of support vectors
 
-    def _optimize(self):
+    def _compute_kernel(self):
         pass
+
+    def _optimize(self, X, y):
+        """
+        Solve the quadratic programming problem to compute Lagrange multipliers.
+
+        Parameters:
+        - X: Training data (n_samples, n_features)
+        - y: Labels (n_samples, 1), must be +1 or -1
+
+        Returns:
+        - alphas: Lagrange multipliers (n_samples,)
+        """
+        n_samples, _ = X.shape
+
+        # Compute the kernel matrix+
+        K = self._compute_kernel(X)
 
     def fit(self, X, y):
         """
