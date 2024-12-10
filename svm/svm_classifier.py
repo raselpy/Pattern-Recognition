@@ -27,8 +27,32 @@ class SVM(object):
         self.X_support = None  # Support vectors
         self.y_support = None  # Labels of support vectors
 
-    def _compute_kernel(self):
-        pass
+    def _compute_kernel(self , X, Z=None):
+        """
+        Compute the kernel matrix between X and Z (or X and itself if Z=None).
+
+        Parameters:
+        - X: Training data (n_samples, n_features)
+        - Z: Data to compute kernel with (n_samples, n_features) (default: None)
+
+        Returns:
+        - Kernel matrix (n_samples_X, n_samples_Z)
+        """
+        if Z is None:
+            Z = X
+
+        if self.kernel == "linear":
+            return np.dot(X, Z.T)
+        elif self.kernel == "poly":
+            gamma = self.gamma if self.gamma else 1.0 / X.shape[1]
+            return (gamma * np.dot(X, Z.T) + self.coef0) ** self.degree
+        elif self.kernel == "rbf":
+            gamma = self.gamma if self.gamma else 1.0 / X.shape[1]
+            X_norm = np.sum(X**2, axis=-1).reshape(-1, 1)
+            Z_norm = np.sum(Z**2, axis=-1).reshape(1, -1)
+            return np.exp(-gamma * (X_norm + Z_norm - 2 * np.dot(X, Z.T)))
+        else:
+            raise ValueError(f"Unknown kernel: {self.kernel}")
 
     def _optimize(self, X, y):
         """
