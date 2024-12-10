@@ -99,6 +99,15 @@ class SVM(object):
         alphas = self._optimize(X, y)
         self.alphas = alphas
 
+        # Step 2: Identify support vectors
+        self.support_vectors = np.where(alphas > 1e-5)[0]
+        self.X_support = X[self.support_vectors]
+        self.y_support = y[self.support_vectors]
+
+        # Step 3: Compute bias
+        K = self._compute_kernel(X)
+        self.b = self._compute_bias(X, y, alphas, K)
+
     def predict(self):
         pass
 
