@@ -83,6 +83,25 @@ class SVM(object):
         alphas = np.ravel(solution["x"])
         return alphas
 
+    def _compute_bias(self, X, y, alphas, K):
+        """
+        Compute the bias term using the support vectors.
+
+        Parameters:
+        - X: Training data (n_samples, n_features)
+        - y: Labels (n_samples, 1), must be +1 or -1
+        - alphas: Lagrange multipliers (n_samples,)
+        - K: Kernel matrix (n_samples, n_samples)
+
+        Returns:
+        - b: Bias term (float)
+        """
+        support_vector_indices = (alphas > 1e-5) & (alphas < self.C)
+        b_values = y[support_vector_indices] - np.sum(
+            alphas * y * K[support_vector_indices], axis=1
+        )
+        return np.mean(b_values)
+
     def fit(self, X, y):
         """
             Train the SVM model using kernelized Lagrange duality optimization.
