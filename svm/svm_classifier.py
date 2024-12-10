@@ -127,6 +127,10 @@ class SVM(object):
         K = self._compute_kernel(X)
         self.b = self._compute_bias(X, y, alphas, K)
 
+        # Compute weights only if using a linear kernel
+        if self.kernel == "linear":
+            self.w = np.sum((alphas[:, None] * y[:, None]) * X, axis=0)
+
     def predict(self):
         pass
 
