@@ -70,6 +70,19 @@ class SVM(object):
         # Compute the kernel matrix+
         K = self._compute_kernel(X)
 
+        # Construct the quadratic programming problem
+        P = matrix(np.outer(y, y) * K)
+        q = matrix(-np.ones(n_samples))
+        G = matrix(np.vstack((-np.eye(n_samples), np.eye(n_samples))))
+        h = matrix(np.hstack((np.zeros(n_samples), np.ones(n_samples) * self.C)))
+        A = matrix(y.reshape(1, -1), (1, n_samples), 'd')
+        b = matrix(0.0)
+
+        # Solve the QP problem
+        solution = solvers.qp(P, q, G, h, A, b)
+        alphas = np.ravel(solution["x"])
+        return alphas
+
     def fit(self, X, y):
         """
             Train the SVM model using kernelized Lagrange duality optimization.
