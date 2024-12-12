@@ -147,9 +147,3 @@ class SVM(object):
             K = self._compute_kernel(X, self.X_support)
             decision = np.sum(self.alphas[self.support_vectors] * self.y_support * K, axis=1) + self.b
             return np.sign(decision)
-
-X = np.array([[2, 3], [3, 3], [2, 1], [3, 1]])
-y = np.array([1, 1, -1, -1])
-svm = SVM(C=1.0, kernel="rbf", gamma=0.5)
-svm.fit(X, y)
-predictions = svm.predict(X)
